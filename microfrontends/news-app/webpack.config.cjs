@@ -1,50 +1,64 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { ModuleFederationPlugin } = require('@module-federation/enhanced/webpack');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const {
+  ModuleFederationPlugin,
+} = require("@module-federation/enhanced/webpack");
 
 module.exports = {
-  entry: './src/main.tsx',
-  mode: 'development',
+  entry: "./src/main.tsx",
+  mode: "development",
   devServer: {
     port: 3001,
     historyApiFallback: true,
   },
   output: {
-    publicPath: 'http://localhost:3001/',
+    publicPath: "http://localhost:3001/",
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
   },
   module: {
     rules: [
       {
         test: /\.(ts|tsx)$/,
-        use: 'ts-loader',
+        use: "ts-loader",
         exclude: /node_modules/,
       },
       {
         test: /\.jsx?$/,
-        loader: 'babel-loader',
+        loader: "babel-loader",
         exclude: /node_modules/,
         options: {
-          presets: ['@babel/preset-env', '@babel/preset-react'],
+          presets: ["@babel/preset-env", "@babel/preset-react"],
         },
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader", "postcss-loader"],
       },
     ],
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'news',
-      filename: 'remoteEntry.js',
+      name: "news",
+      filename: "remoteEntry.js",
       exposes: {
-        './News': './src/News.tsx',
+        "./News": "./src/News.tsx",
+      },
+      remotes: {
+        ads: "ads@http://localhost:3002/remoteEntry.js",
+        sponsors: "sponsors@http://localhost:3003/remoteEntry.js",
       },
       shared: {
-        react: { singleton: true, eager: true, requiredVersion: '^18.0.0' },
-        'react-dom': { singleton: true, eager: true, requiredVersion: '^18.0.0' },
+        react: { singleton: true, eager: true, requiredVersion: "^18.0.0" },
+        "react-dom": {
+          singleton: true,
+          eager: true,
+          requiredVersion: "^18.0.0",
+        },
       },
     }),
     new HtmlWebpackPlugin({
-      template: './index.html',
+      template: "./index.html",
     }),
   ],
 };

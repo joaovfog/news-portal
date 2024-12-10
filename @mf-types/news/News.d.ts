@@ -1,2 +1,2 @@
-export * from './compiled-types/News';
-export { default } from './compiled-types/News';
+export * from './compiled-types/src/News';
+export { default } from './compiled-types/src/News';

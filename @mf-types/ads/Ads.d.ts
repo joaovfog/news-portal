@@ -1,2 +1,2 @@
-export * from './compiled-types/Ads';
-export { default } from './compiled-types/Ads';
+export * from './compiled-types/src/Ads';
+export { default } from './compiled-types/src/Ads';

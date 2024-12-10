@@ -11,6 +11,6 @@
     "isolatedModules": true,
     "outDir": "./dist"
   },
-  "include": ["src/**/*", "types/**/*"], // Inclui os tipos
+  "include": ["src/**/*", "types/**/*"],
   "exclude": ["node_modules"]
 }

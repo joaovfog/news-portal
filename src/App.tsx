@@ -1,20 +1,31 @@
-import React, { Suspense } from 'react';
+import React, { Suspense } from "react";
 
-const News = React.lazy(() => import('news/News')); // Importação do módulo remoto
-const Ads = React.lazy(() => import('ads/Ads')); // Importação do módulo remoto
-const Sponsors = React.lazy(() => import('sponsors/Sponsors')); // Importação do módulo remoto
-const Weather = React.lazy(() => import('weather/Weather')); // Importação do módulo remoto
+const News = React.lazy(() => import("news/News"));
+const Ads = React.lazy(() => import("ads/Ads"));
+const Sponsors = React.lazy(() => import("sponsors/Sponsors"));
+const Weather = React.lazy(() => import("weather/Weather"));
 
 const App: React.FC = () => {
   return (
-    <div>
-      <h1>Portal de Notícias</h1>
-      <Suspense fallback={<div>Carregando...</div>}>
-        <News /> {/* Renderiza o componente News do micro-frontend */}
-        <Ads /> {/* Renderiza o componente News do micro-frontend */}
-        <Sponsors /> {/* Renderiza o componente News do micro-frontend */}
-        <Weather /> {/* Renderiza o componente News do micro-frontend */}
-      </Suspense>
+    <div className="bg-gray-100">
+      <div className="container mx-auto">
+        <div className="flex justify-center flex-col">
+          <h1 className="text-4xl font-bold text-center mt-4">
+            Bem-vindo ao nosso portal de notícias
+          </h1>
+          <p className="text-xl text-center mt-4">
+            Mantenha-se informado com as últimas notícias, actualizações
+            meteorológicas e ofertas exclusivas dos nossos patrocinadores.
+          </p>
+        </div>
+
+        <Suspense fallback={<div>Carregando...</div>}>
+          <News />
+          {/* <Ads />
+        <Sponsors />
+        <Weather /> */}
+        </Suspense>
+      </div>
     </div>
   );
 };
