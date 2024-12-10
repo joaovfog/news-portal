@@ -26,6 +26,8 @@ Este é um projeto de portal de notícias desenvolvido utilizando React e Module
    ```bash
    cd news-portal
    npm install
+
+   cd microfrontends
    
    cd ../news-app
    npm install
