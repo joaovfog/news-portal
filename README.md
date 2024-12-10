@@ -1,50 +1,40 @@
-# React + TypeScript + Vite
+# Portal de Notícias com Micro-Frontends
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto de portal de notícias desenvolvido utilizando React e Module Federation para a implementação de micro-frontends.
 
-Currently, two official plugins are available:
+## Estrutura do Projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **news-portal**: Projeto principal que integra todos os micro-frontends.
+- **news-app**: Micro-frontend responsável pela seção de notícias.
+- **ads-app**: Micro-frontend responsável pelos anúncios.
+- **sponsors-app**: Micro-frontend responsável pelos patrocinadores.
+- **weather-app**: Micro-frontend responsável pela previsão do tempo.
 
-## Expanding the ESLint configuration
+## Pré-requisitos
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Node.js (versão 16 ou superior)
+- npm ou yarn
 
-- Configure the top-level `parserOptions` property like this:
+## Como Executar o Projeto
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/SEU_USUARIO/news-portal.git
+   cd news-portal
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+2. Instale as dependências do projeto:
+   ```bash
+   cd news-portal
+   npm install
+   
+   cd ../news-app
+   npm install
+   
+   cd ../ads-app
+   npm install
+   
+   cd ../sponsors-app
+   npm install
+   
+   cd ../weather-app
+   npm install
