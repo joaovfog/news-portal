@@ -6,7 +6,7 @@ Este é um projeto de portal de notícias desenvolvido utilizando React e Module
 
 - **news-portal**: Projeto principal que integra todos os micro-frontends.
 - **news-app**: Micro-frontend responsável pela seção de notícias.
-- **ads**: Micro-frontend responsável pelos anúncios.
+- **ads-app**: Micro-frontend responsável pelos anúncios.
 - **sponsors-app**: Micro-frontend responsável pelos patrocinadores.
 - **weather-app**: Micro-frontend responsável pela previsão do tempo.
 
@@ -24,13 +24,13 @@ Este é um projeto de portal de notícias desenvolvido utilizando React e Module
 
 2. Instale as dependências do projeto:
    ```bash
-   cd host
+   cd news-portal
    npm install
    
    cd ../news-app
    npm install
    
-   cd ../ads
+   cd ../ads-app
    npm install
    
    cd ../sponsors-app
