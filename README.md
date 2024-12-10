@@ -26,6 +26,8 @@ Este é um projeto de portal de notícias desenvolvido utilizando React e Module
    ```bash
    cd news-portal
    npm install
+
+   cd microfrontends
    
    cd ../news-app
    npm install
@@ -38,3 +40,22 @@ Este é um projeto de portal de notícias desenvolvido utilizando React e Module
    
    cd ../weather-app
    npm install
+
+3. Inicie os servidores de desenvolvimento:
+   ```bash
+   cd ../news-app
+   npm run dev
+
+   cd ../ads-app
+   npm run dev
+
+   cd ../sponsors-app
+   npm run dev
+
+   cd ../weather-app
+   npm run dev
+
+   cd ../..
+   npm run dev
+
+4. Abra http://localhost:3000/ no seu navegador
