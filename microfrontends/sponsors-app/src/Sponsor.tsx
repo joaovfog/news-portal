@@ -2,17 +2,17 @@ import React from "react";
 
 interface SponsorProps {
   name: string;
-  description: string;
+  promotion: string;
 }
 
 const Sponsor: React.FC<SponsorProps> = ({
   name,
-  description,
+  promotion,
 }: SponsorProps) => {
   return (
     <div className="bg-green-100 p-4 rounded">
       <h3 className="font-semibold">{name}</h3>
-      <p>{description}</p>
+      <p>{promotion}</p>
     </div>
   );
 };

@@ -1,28 +1,17 @@
-import React, { useState } from "react";
-import { mockAds } from "./mock";
 import Ad from "./Ad";
 
-const Ads: React.FC = () => {
-  const [ads] = useState(mockAds);
+interface AdsProps {
+  id?: number
+  title?: string
+  description?: string
+  price?: string
+}
 
+const Ads: React.FC<AdsProps> = ({ id, title = 'Título', description = 'Descrição', price }: AdsProps) => {
   return (
-    <div className="space-y-8">
-      <div>
-        {ads.map((ad, i) => (
-          <Ad key={i} title={ad.title} description={ad.description} />
-        ))}
-      </div>
+    <div className="space-y-8 w-full">
+      <Ad key={id} title={title} description={description} price={price} />
     </div>
-    // <section className="mb-8">
-    //   <h2 className="text-xl font-bold mb-4">Anúncios</h2>
-
-    //   {ads.map((ad) => (
-    //     <div key={ad.id} className="mb-4 p-4 bg-yellow-100 rounded">
-    //       <h3 className="font-bold">{ad.title}</h3>
-    //       <p>{ad.description}</p>
-    //     </div>
-    //   ))}
-    // </section>
   );
 };
 

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { mockWeather, weatherProducts } from "./mock";
 
+const Ads = React.lazy(() => import("ads/Ads"));
+
 const Weather: React.FC = () => {
   const [weather, setWeather] = useState(mockWeather);
-  const [products, setProducts] = useState<typeof weatherProducts.rainy>([]);
+  const [products, setProducts] = useState<typeof weatherProducts.sunny>([]);
 
   useEffect(() => {
     setWeather(mockWeather);
@@ -16,24 +18,23 @@ const Weather: React.FC = () => {
   }, [weather]);
 
   return (
-    <section className="mb-8">
-      <h2 className="text-xl font-bold mb-4">Previsão do tempo</h2>
+    <div className="space-y-8 mt-16 text-center">
+      <h1 className="text-3xl font-bold">Previsão do tempo</h1>
 
-      <div className="mb-4">
-        <p>Condition: {weather.condition}</p>
-        <p>Temperature: {weather.temperature}°C</p>
-      </div>
-      <div>
-        <h3 className="font-bold mb-2">Produtos recomendados:</h3>
-        <ul>
+      <div className="flex items-center gap-4 justify-center">
+        <div className="mb-4">
+          <p>Condição: {weather.condition === 'rainy' ? 'tempo chuvoso' : 'tempo ensolarado'}</p>
+          <p>Temperatura: {weather.temperature}°C</p>
+        </div>
+        <ul className="flex gap-4">
           {products.map((product) => (
             <li key={product.id} className="mb-2">
-              {product.name} - ${product.price.toFixed(2)}
+              <Ads title={product.name} description="" price={product.price} />
             </li>
           ))}
         </ul>
       </div>
-    </section>
+    </div>
   );
 };
 

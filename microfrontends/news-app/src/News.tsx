@@ -15,16 +15,6 @@ const News: React.FC = () => {
         ))}
       </div>
     </div>
-    // <section className="mb-8">
-    //   <h2 className="text-xl font-bold mb-4">Últimas notícias</h2>
-
-    //   {news.map((item) => (
-    //     <article key={item.id} className="mb-4 p-4 border rounded">
-    //       <h3 className="font-bold">{item.title}</h3>
-    //       <p>{item.content}</p>
-    //     </article>
-    //   ))}
-    // </section>
   );
 };
 

@@ -1,8 +1,6 @@
 import React, { Suspense } from "react";
 
 const News = React.lazy(() => import("news/News"));
-const Ads = React.lazy(() => import("ads/Ads"));
-const Sponsors = React.lazy(() => import("sponsors/Sponsors"));
 const Weather = React.lazy(() => import("weather/Weather"));
 
 const App: React.FC = () => {
@@ -21,9 +19,7 @@ const App: React.FC = () => {
 
         <Suspense fallback={<div>Carregando...</div>}>
           <News />
-          {/* <Ads />
-        <Sponsors />
-        <Weather /> */}
+          <Weather />
         </Suspense>
       </div>
     </div>

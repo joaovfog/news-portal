@@ -42,7 +42,10 @@ module.exports = {
       name: "weather",
       filename: "remoteEntry.js",
       exposes: {
-        "./Weather": "./src/Weather.tsx", // Expondo o componente Weather
+        "./Weather": "./src/Weather.tsx",
+      },
+      remotes: {
+        ads: "ads@http://localhost:3002/remoteEntry.js",
       },
       shared: {
         react: { singleton: true, eager: true, requiredVersion: "^18.0.0" },
